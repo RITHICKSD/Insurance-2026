@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <title>Contact IST Insurance — Global Presence & Support</title>
+    <meta name="description" content="Reach IST Insurance through our global hub network. Access 24/7 claims support, departmental directories, and local offices across 140 countries."/>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="contact.css"/>
+</head>
+<body>
+
+<!-- 1. HERO SECTION -->
+<section class="pg-hero section">
+    <div class="pg-hero-bg"></div>
+    <div class="pg-hero-grid"></div>
+    <div class="container">
+        <div class="pg-hero-content">
+            <div class="pg-hero-text">
+                <div class="section-badge reveal" style="margin-bottom: 20px; color: var(--gold); border-color: rgba(201, 168, 76, 0.3);">Get in Touch</div>
+                <h1 class="reveal delay-1">
+                    <span class="hero-h-top">Connect</span>
+                    <span class="hero-h-mid">Globally</span>
+                </h1>
+                <p class="reveal delay-2">Whether you're a local policyholder or a multinational partner, our infrastructure is designed to provide immediate, expert support wherever you are on the map.</p>
+                
+                <div class="hero-trust-row reveal delay-3">
+                    <div class="ht-item">
+                        <div class="ht-circle">✓</div>
+                        <span>24/7 Support</span>
+                    </div>
+                    <div class="ht-item">
+                        <div class="ht-circle">✓</div>
+                        <span>Global Network</span>
+                    </div>
+                    <div class="ht-item">
+                        <div class="ht-circle">✓</div>
+                        <span>Direct Access</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pg-hero-visual reveal-right delay-2">
+                <div class="hero-visual-container">
+                    <div class="hero-v-circle"></div>
+                    <img src="i7.jpg" alt="IST Global Infrastructure" class="hero-main-img">
+                    <div class="hero-float-card">
+                        <div class="hfc-icon" data-icon="phone" style="width:24px;height:24px;color:var(--gold)"></div>
+                        <div class="hfc-text">
+                            <strong>Global Hotline</strong>
+                            <span>+1 (800) IST-INSURE</span>
+                            <div style="font-size: .65rem; color: #22C55E; font-weight: 700; margin-top: 4px; display: flex; align-items: center; gap: 4px;">
+                                <span style="width: 6px; height: 6px; background: #22C55E; border-radius: 50%;"></span>
+                                24/7 Priority Live
+                            </div>
+                            <small style="font-size: 10px; opacity: 0.5; display: block; margin-top: 2px;">Avg. Response: 1.5 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 2. MAIN CONTACT & FORM -->
+<section class="contact-main section">
+    <div class="container">
+        <div class="contact-layout">
+            <div>
+                <div class="section-badge reveal">Direct Channels</div>
+                <h2 class="reveal delay-1">We're <span style="color:var(--gold);font-style:italic">Always</span> Here</h2>
+                <p class="reveal delay-2">In your moment of need, we don't believe in long hold times or automated loops. Connect with our experts directly.</p>
+                <div class="contact-methods reveal delay-2">
+                    <div class="cm-item"><div class="cm-icon" data-icon="phone" style="width:20px;height:20px"></div><div><strong>Global Hotline</strong><span>+1 (800) IST-INSURE · 24/7 Priority</span></div></div>
+                    <div class="cm-item"><div class="cm-icon" data-icon="mail" style="width:20px;height:20px"></div><div><strong>Support Email</strong><span>hello@ISTinsurance.com · 2hr Response</span></div></div>
+                    <div class="cm-item"><div class="cm-icon" data-icon="messageSquare" style="width:20px;height:20px"></div><div><strong>Instant Chat</strong><span>Available via IST App & Member Portal</span></div></div>
+                </div>
+                <div class="hours-card reveal delay-3">
+                    <h4>Regional Hub Hours</h4>
+                    <div class="hours-list">
+                        <div class="hours-row"><span>Mon – Fri (Hub Local Time)</span><span>8:00 AM – 8:00 PM</span></div>
+                        <div class="hours-row"><span>Sat & Sun (Limited Support)</span><span>9:00 AM – 4:00 PM</span></div>
+                        <div class="hours-row"><span>Emergency Claims</span><span>24/7 · Always Live</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal-right delay-2">
+                <div class="contact-form-box">
+                    <h3 class="cf-title">Send an Inquiry</h3>
+                    <p class="cf-sub">Describe your situation and our relevant department will contact you within 2 hours.</p>
+                    <form id="contactForm" onsubmit="handleContact(event)">
+                        <div class="cf-grid">
+                            <div class="cf-group"><label class="cf-label">Full Name *</label><input class="cf-field" type="text" placeholder="John Doe" required/></div>
+                            <div class="cf-group"><label class="cf-label">Email Address *</label><input class="cf-field" type="email" placeholder="john@company.com" required/></div>
+                            <div class="cf-group"><label class="cf-label">Phone Number</label><input class="cf-field" type="tel" placeholder="+1 (555) 000-0000"/></div>
+                            <div class="cf-group"><label class="cf-label">Inquiry Department *</label><select class="cf-field cf-select" required><option value="" disabled selected>Select Department...</option><option>Personal Claims</option><option>Commercial & B2B</option><option>Underwriting Inquiries</option><option>Policy Adjustments</option><option>Partner Relations</option></select></div>
+                            <div class="cf-group full"><label class="cf-label">Brief Description</label><textarea class="cf-field" rows="3" placeholder="How can we assist you today?"></textarea></div>
+                        </div>
+                        <div style="margin-top:24px">
+                            <button type="submit" class="btn-primary" style="width:100%;justify-content:center;font-size:.95rem">Dispatch Message</button>
+                        </div>
+                        <div class="cf-success" id="cfSuccess">
+                            <span data-icon="check" style="width:18px;height:18px;display:inline-flex;margin-right:8px"></span>
+                            Message Dispatched. A specialist will reach out shortly.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. REGIONAL HUBS (NEW SECTION 1) -->
+<section class="section pad bg-white" id="hubs">
+    <div class="container">
+        <div class="text-center">
+            <div class="section-badge">Our Network</div>
+            <h2 class="section-title">Strategic <span class="accent">Global Hubs</span></h2>
+            <div class="gold-line"></div>
+        </div>
+        <div class="hubs-grid">
+            <div class="hub-card reveal delay-1">
+                <span class="hub-tag">Europe Hub</span>
+                <h3>London</h3>
+                <p>120 Canary Wharf, London, E14 5AB, United Kingdom<br><strong>+44 20 7946 0123</strong></p>
+            </div>
+            <div class="hub-card reveal delay-2">
+                <span class="hub-tag">Middle East Hub</span>
+                <h3>Dubai</h3>
+                <p>IST Tower, DIFC, Level 44, Dubai, UAE<br><strong>+971 4 123 4567</strong></p>
+            </div>
+            <div class="hub-card reveal delay-3">
+                <span class="hub-tag">Asia Pacific Hub</span>
+                <h3>Singapore</h3>
+                <p>8 Marina View, Asia Square Tower 1, Singapore<br><strong>+65 6789 0123</strong></p>
+            </div>
+            <div class="hub-card reveal delay-4">
+                <span class="hub-tag">Americas Hub</span>
+                <h3>New York</h3>
+                <p>One World Trade Center, Suite 85, NY, USA<br><strong>+1 212 555 0198</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. WORLD MAP VISUAL (NEW SECTION 2) -->
+<section class="section" style="padding-bottom:100px; background: var(--ivory);">
+    <div class="container">
+        <div class="map-visual-wrap reveal">
+            <img src="contact_world_map.png" alt="Global Presence Map" class="map-canvas">
+            <div class="map-overlay-content">
+                <div class="map-text">
+                    <div class="section-badge" style="background:rgba(255,255,255,0.1);color:#fff;border-color:rgba(255,255,255,0.2)">IST Presence</div>
+                    <h2>Protection with <br><span class="accent">No Borders.</span></h2>
+                    <p style="opacity:0.8;margin-bottom:30px">Active in 140+ countries with a network of 2,400+ mobile responders ready to assist you anywhere on the globe.</p>
+                    <a href="about.html" class="btn-primary">View Global Impact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. DEPARTMENT DIRECTORY (NEW SECTION 3) -->
+<section class="section pad bg-white" id="directory">
+    <div class="container">
+        <div class="text-center">
+            <div class="section-badge">Fast Track</div>
+            <h2 class="section-title">Department <span class="accent">Directory</span></h2>
+            <div class="gold-line"></div>
+        </div>
+        <div class="dir-grid">
+            <div class="dir-item reveal delay-1"><div class="dir-icon" data-icon="shield"></div><div><h4>Claims Support</h4><a href="mailto:claims@IST.com">claims@IST.com</a></div></div>
+            <div class="dir-item reveal delay-2"><div class="dir-icon" data-icon="chart"></div><div><h4>Commercial Underwriting</h4><a href="mailto:biz@IST.com">biz@IST.com</a></div></div>
+            <div class="dir-item reveal delay-3"><div class="dir-icon" data-icon="handshake"></div><div><h4>Partner Network</h4><a href="mailto:partners@IST.com">partners@IST.com</a></div></div>
+            <div class="dir-item reveal delay-4"><div class="dir-icon" data-icon="digital"></div><div><h4>Media & Press</h4><a href="mailto:press@IST.com">press@IST.com</a></div></div>
+            <div class="dir-item reveal delay-5"><div class="dir-icon" data-icon="briefcase"></div><div><h4>Career Services</h4><a href="mailto:hr@IST.com">hr@IST.com</a></div></div>
+            <div class="dir-item reveal delay-6"><div class="dir-icon" data-icon="shieldCheck"></div><div><h4>Legal & Compliance</h4><a href="mailto:legal@IST.com">legal@IST.com</a></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- 6. FAQ HIGHLIGHTS (NEW SECTION 4) -->
+<section class="section pad bg-ivory" id="help-center">
+    <div class="container">
+        <div class="help-row">
+            <div class="reveal-left">
+                <div class="section-badge">Help Center</div>
+                <h2 class="section-title">Frequently Asked <span class="accent">Questions</span></h2>
+                <div class="gold-line"></div>
+                <div class="faq-list-cnt">
+                    <div class="faq-item-cnt"><h4>How do I file an urgent international claim?</h4><p>Use the IST App or call our +1 Global Hotline. Our responders are dispatched within 20 minutes of verification.</p></div>
+                    <div class="faq-item-cnt"><h4>Can I update my coverage through the mobile app?</h4><p>Yes, all policy adjustments, RIDERS additions, and premium payments can be managed via the IST Portal.</p></div>
+                    <div class="faq-item-cnt"><h4>What is the typical response time for emails?</h4><p>We guarantee a response from a human specialist within 2 hours during regional hub operating hours.</p></div>
+                </div>
+            </div>
+            <div class="reveal-right delay-2">
+                <div style="background:var(--forest);padding:50px;border-radius:30px;color:#fff;text-align:center">
+                    <div data-icon="helpCircle" style="width:60px;height:60px;margin:0 auto 20px;color:var(--gold)"></div>
+                    <h3>Still have doubts?</h3>
+                    <p style="opacity:0.7;margin-bottom:30px">Our AI Assistant "Shield" is available 24/7 to answer complex policy questions instantly.</p>
+                    <a href="#" class="btn-primary" style="width:100%;justify-content:center">Start Live Chat</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="icons.js"></script>
+<script src="components.js"></script>
+<script>
+function handleContact(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('[type=submit]');
+  btn.textContent = 'Dispatching...';
+  btn.disabled = true;
+  setTimeout(() => {
+    document.getElementById('cfSuccess').style.display = 'flex';
+    document.getElementById('cfSuccess').style.alignItems = 'center';
+    btn.innerHTML = ISTIcons.check ? `${ISTIcons.check} Dispatched` : '✓ Dispatched';
+    if (ISTIcons.check) {
+        const svg = btn.querySelector('svg');
+        if (svg) {
+            svg.style.width = '18px';
+            svg.style.height = '18px';
+            svg.style.marginRight = '8px';
+        }
+    }
+    btn.style.background = 'linear-gradient(135deg,#22C55E,#16A34A)';
+    btn.style.display = 'flex';
+    btn.style.alignItems = 'center';
+    btn.style.justifyContent = 'center';
+    e.target.reset();
+  }, 1500);
+}
+</script>
+</body>
+</html>
+

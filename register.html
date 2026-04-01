@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register — IST Insurance</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root {
+      --auth-bg: #fffbf2;
+      --auth-border: #f9e1a1;
+    }
+
+    body {
+      background: var(--auth-bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      margin: 0;
+    }
+
+    .auth-lang-abs {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+    }
+
+    [dir=rtl] .auth-lang-abs {
+      right: auto;
+      left: 20px;
+    }
+
+    .auth-container {
+      width: 100%;
+      max-width: 480px;
+      background: #fff;
+      border: 1.5px solid var(--auth-border);
+      border-radius: 40px;
+      padding: 48px 40px;
+      box-shadow: 0 10px 40px rgba(201, 168, 76, 0.08);
+      position: relative;
+    }
+
+    .auth-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      text-decoration: none;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-text .lt1 {
+      font-family: var(--ff-title);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--forest);
+      letter-spacing: 2px;
+    }
+
+    .logo-text .lt2 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #a67c2e;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-top: 2px;
+    }
+
+    .auth-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .auth-header p {
+      color: #8b5e3c;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 8px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 13px 20px;
+      border: 1.5px solid var(--auth-border);
+      border-radius: 12px;
+      font-family: var(--ff-body);
+      font-size: 1rem;
+      color: var(--text-dark);
+      transition: border-color 0.3s, box-shadow 0.3s;
+      background: #fff;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.1);
+    }
+
+    .form-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      color: #8b5e3c;
+      font-weight: 500;
+      font-size: 0.85rem;
+      margin-bottom: 32px;
+      line-height: 1.4;
+    }
+
+    .form-checkbox input {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .form-checkbox a {
+      color: #008080;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .btn-auth {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #000;
+      font-weight: 800;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-auth:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(31, 163, 122, 0.3);
+    }
+
+    .auth-footer {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #8b5e3c;
+      font-weight: 500;
+    }
+
+    .auth-footer a {
+      color: #008080;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 480px) {
+      .auth-container {
+        padding: 40px 24px;
+        border-radius: 24px;
+      }
+      .auth-logo-text .t1 { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body class="no-global-components">
+
+  <div class="auth-container">
+    <div class="auth-lang-abs">
+      <button class="lang-toggle" id="langToggle" aria-label="Toggle RTL/LTR">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/>
+        </svg>
+      </button>
+    </div>
+
+    <a href="index.html" class="auth-logo">
+      <svg class="logo-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:50px; height:50px;">
+        <path d="M22 3L40 11V23C40 33 32 40.5 22 43C12 40.5 4 33 4 23V11Z" fill="#0A2E1F"/>
+        <path d="M22 7L36 13.5V23C36 31 29.5 37 22 39.5C14.5 37 8 31 8 23V13.5Z" fill="none" stroke="#C9A84C" stroke-width="1"/>
+        <path d="M15 22l5 5 9-9" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="logo-text">
+        <span class="lt1">IST</span>
+        <span class="lt2">Insurance Group</span>
+      </div>
+    </a>
+
+    <div class="auth-header">
+      <p>Create your account</p>
+    </div>
+
+    <form action="login.html">
+      <div class="form-group">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-input" placeholder="John Doe" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-input" placeholder="john@example.com" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Phone Number</label>
+        <input type="tel" class="form-input" placeholder="(555) 123-4567" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-input" placeholder="Create a password" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Confirm Password</label>
+        <input type="password" class="form-input" placeholder="Confirm your password" required />
+      </div>
+
+      <label class="form-checkbox">
+        <input type="checkbox" required> 
+        <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+      </label>
+
+      <button type="submit" class="btn-auth">Create Account</button>
+    </form>
+
+    <div class="auth-footer">
+      Already have an account? <a href="login.html">Login here</a>
+    </div>
+  </div>
+
+  <script src="icons.js"></script>
+  <script>
+    // RTL Toggle Logic
+    const dir = localStorage.getItem('IST-dir') || 'ltr';
+    document.documentElement.setAttribute('dir', dir);
+
+    document.getElementById('langToggle').addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('dir');
+      const next = current === 'ltr' ? 'rtl' : 'ltr';
+      document.documentElement.setAttribute('dir', next);
+      localStorage.setItem('IST-dir', next);
+    });
+  </script>
+</body>
+</html>
+

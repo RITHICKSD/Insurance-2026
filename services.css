@@ -1,0 +1,384 @@
+/* SERVICES PAGE SPECIFIC STYLES */
+.section.pad {
+    padding: 80px 0;
+}
+
+/* 1. HERO */
+.srv-hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    background: var(--forest);
+    padding-top: var(--header-h);
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+}
+
+.srv-hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(10, 46, 31, 0.9), rgba(10, 46, 31, 0.4)), url('i5.jpg') center/cover no-repeat;
+}
+
+.srv-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.srv-hero h1 {
+    font-family: var(--ff-display);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 22px;
+}
+
+.hero-h-top {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    display: block;
+    letter-spacing: -1.5px;
+    margin-bottom: 5px;
+}
+
+.hero-h-mid {
+    font-size: clamp(1.8rem, 3.5vw, 3.5rem);
+    font-style: italic;
+    color: var(--gold);
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.hero-h-bot {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    color: var(--gold);
+    display: block;
+    line-height: 1.1;
+}
+
+/* 2. CATEGORIES GRID */
+.srv-cat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.cat-card {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s, box-shadow 0.4s;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.cat-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+.cat-icon {
+    width: 60px;
+    height: 60px;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cat-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* 3. LIFE DETAIL (SPLIT) */
+.srv-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.srv-split.reverse {
+    direction: rtl;
+}
+
+.srv-split.reverse>div {
+    direction: ltr;
+}
+
+/* 4. VEHICLE FEATURES */
+.veh-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.veh-card {
+    background: var(--ivory-dark);
+    padding: 40px;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* 5. PROPERTY IMMERSIVE */
+.prop-bg {
+    background: var(--forest);
+    padding: 120px 0;
+    color: #fff;
+    border-radius: 50px;
+}
+
+/* 6. BUSINESS CONTINUITY */
+.biz-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.biz-item {
+    display: flex;
+    gap: 15px;
+    background: #fff;
+    padding: 24px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* 7. RIDERS (ADD-ONS) */
+.rider-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 0;
+    scrollbar-width: none;
+}
+
+.rider-card {
+    min-width: 300px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+/* 8. COMPARISON TABLE */
+.plan-comp {
+    width: 100%;
+    margin-top: 50px;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.plan-comp th {
+    padding: 25px;
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+.plan-comp td {
+    background: #fff;
+    padding: 25px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.plan-comp td:first-child {
+    border-left: 1px solid #eee;
+    border-radius: 15px 0 0 15px;
+}
+
+.plan-comp td:last-child {
+    border-right: 1px solid #eee;
+    border-radius: 0 15px 15px 0;
+}
+
+/* 9. DIGITAL EXPERIENCE */
+.step-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+    position: relative;
+}
+
+.step-row::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(201, 168, 76, 0.2);
+    z-index: 1;
+}
+
+.step-item {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 22%;
+}
+
+.step-num {
+    width: 60px;
+    height: 60px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    color: var(--forest);
+}
+
+/* 10. WELLNESS */
+.well-box {
+    background: var(--green-tint);
+    padding: 80px;
+    border-radius: 40px;
+}
+
+/* 11. SPECIALIZED */
+.spec-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.spec-card {
+    height: 400px;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+}
+
+.spec-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10, 46, 31, 0.95), transparent);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* 12. SERVICE STATS */
+.srv-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.srv-stat-box {
+    text-align: center;
+}
+
+.srv-stat-num {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--gold);
+}
+
+/* 13. SELECTION GUIDE */
+.guide-wrap {
+    background: var(--ivory-dark);
+    padding: 60px;
+    border-radius: 30px;
+}
+
+/* 14. FAQS */
+.faq-wrap-srv {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* 15. FINAL CTA */
+.srv-cta {
+    padding: 120px 0;
+    background: var(--forest);
+    border-radius: 60px 60px 0 0;
+    text-align: center;
+    color: #fff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+
+    .srv-cat-grid,
+    .veh-grid,
+    .spec-grid,
+    .srv-stat-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .srv-split,
+    .global-grid-abt,
+    .biz-list {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .srv-cat-grid {
+        margin-top: 40px;
+    }
+
+    .section.pad {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .srv-cat-grid,
+    .veh-grid,
+    .spec-grid,
+    .srv-stat-grid,
+    .pillar-row {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .step-row {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .step-row::after {
+        display: none;
+    }
+
+    .step-item {
+        width: 100%;
+    }
+
+    .well-box {
+        padding: 60px 24px;
+    }
+
+    .srv-hero h1 {
+        font-size: 3.2rem;
+    }
+
+    .srv-split {
+        gap: 40px;
+    }
+
+    .section.pad {
+        padding: 40px 0;
+    }
+}
