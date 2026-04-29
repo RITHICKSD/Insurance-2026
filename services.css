@@ -70,17 +70,18 @@
 }
 
 .cat-card {
-    background: #fff;
+    background: var(--bg-card);
     padding: 40px 30px;
     border-radius: 24px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    transition: transform 0.4s, box-shadow 0.4s;
+    box-shadow: var(--shadow-th);
+    transition: transform 0.4s, box-shadow 0.4s, background var(--t);
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     height: 100%;
+    border: 1px solid var(--border-th);
 }
 
 .cat-card:hover {
@@ -128,10 +129,11 @@
 }
 
 .veh-card {
-    background: var(--ivory-dark);
+    background: var(--bg-primary);
     padding: 40px;
     border-radius: 30px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-th);
+    transition: background var(--t);
 }
 
 /* 5. PROPERTY IMMERSIVE */
@@ -152,10 +154,11 @@
 .biz-item {
     display: flex;
     gap: 15px;
-    background: #fff;
+    background: var(--bg-card);
     padding: 24px;
     border-radius: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-th);
+    transition: background var(--t);
 }
 
 /* 7. RIDERS (ADD-ONS) */
@@ -169,10 +172,12 @@
 
 .rider-card {
     min-width: 300px;
-    background: #fff;
+    background: var(--bg-card);
     padding: 30px;
     border-radius: 24px;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-th);
+    border: 1px solid var(--border-th);
+    transition: background var(--t);
 }
 
 /* 8. COMPARISON TABLE */
@@ -190,19 +195,20 @@
 }
 
 .plan-comp td {
-    background: #fff;
+    background: var(--bg-card);
     padding: 25px;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
+    border-top: 1px solid var(--border-th);
+    border-bottom: 1px solid var(--border-th);
+    transition: background var(--t);
 }
 
 .plan-comp td:first-child {
-    border-left: 1px solid #eee;
+    border-left: 1px solid var(--border-th);
     border-radius: 15px 0 0 15px;
 }
 
 .plan-comp td:last-child {
-    border-right: 1px solid #eee;
+    border-right: 1px solid var(--border-th);
     border-radius: 0 15px 15px 0;
 }
 
@@ -247,9 +253,10 @@
 
 /* 10. WELLNESS */
 .well-box {
-    background: var(--green-tint);
+    background: var(--bg-tertiary);
     padding: 80px;
     border-radius: 40px;
+    transition: background var(--t);
 }
 
 /* 11. SPECIALIZED */
@@ -296,9 +303,10 @@
 
 /* 13. SELECTION GUIDE */
 .guide-wrap {
-    background: var(--ivory-dark);
+    background: var(--bg-primary);
     padding: 60px;
     border-radius: 30px;
+    transition: background var(--t);
 }
 
 /* 14. FAQS */

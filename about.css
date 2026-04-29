@@ -47,15 +47,16 @@
 /* 2. MANIFESTO */
 .abt-manifesto {
     padding: 120px 0;
-    background: var(--ivory-dark);
+    background: var(--bg-primary);
     text-align: center;
+    transition: background var(--t);
 }
 .manifesto-text {
     max-width: 900px;
     margin: 0 auto;
     font-family: var(--ff-display);
     font-size: clamp(1.4rem, 3vw, 2.5rem);
-    color: var(--forest);
+    color: var(--text-main);
     line-height: 1.4;
     font-weight: 500;
 }
@@ -63,7 +64,8 @@
 /* 3. HERITAGE */
 .abt-heritage {
     padding: 100px 0;
-    background: #fff;
+    background: var(--bg-secondary);
+    transition: background var(--t);
 }
 .heritage-grid {
     display: grid;
@@ -121,7 +123,8 @@
 /* 5. GLOBAL REACH */
 .abt-global {
     padding: 100px 0;
-    background: var(--green-tint);
+    background: var(--bg-tertiary);
+    transition: background var(--t);
 }
 .global-grid-abt {
     display: grid;
@@ -133,7 +136,8 @@
 /* 6. LEADERSHIP */
 .abt-leadership {
     padding: 120px 0;
-    background: #fff;
+    background: var(--bg-secondary);
+    transition: background var(--t);
 }
 .leadership-grid-abt {
     display: grid;
@@ -144,9 +148,10 @@
 .leader-card {
     border-radius: 20px;
     overflow: hidden;
-    background: var(--ivory-dark);
+    background: var(--bg-primary);
     text-align: center;
     padding-bottom: 30px;
+    transition: background var(--t);
 }
 .leader-img {
     height: 280px;
@@ -165,7 +170,7 @@
 }
 .leader-info h3 {
     margin-bottom: 4px;
-    color: var(--forest);
+    color: var(--text-main);
 }
 .leader-info span {
     color: var(--gold);
@@ -205,7 +210,8 @@
 /* 8. INNOVATION */
 .abt-innovation {
     padding: 120px 0;
-    background: #fff;
+    background: var(--bg-secondary);
+    transition: background var(--t);
 }
 .innov-box {
     display: flex;
@@ -220,7 +226,8 @@
 /* 9. SOCIAL RESPONSIBILITY */
 .abt-csr {
     padding: 100px 0;
-    background: var(--green-tint);
+    background: var(--bg-tertiary);
+    transition: background var(--t);
 }
 .csr-grid {
     display: grid;
@@ -232,8 +239,9 @@
 /* 10. PARTNERS */
 .abt-partners {
     padding: 100px 0;
-    background: #fff;
+    background: var(--bg-secondary);
     text-align: center;
+    transition: background var(--t);
 }
 .partner-wrap {
     display: flex;
@@ -246,7 +254,8 @@
 /* 11. OUR PROMISE */
 .abt-promise {
     padding: 120px 0;
-    background: var(--ivory-dark);
+    background: var(--bg-primary);
+    transition: background var(--t);
 }
 .promise-content {
     max-width: 800px;

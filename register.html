@@ -10,6 +10,19 @@
     :root {
       --auth-bg: #fffbf2;
       --auth-border: #f9e1a1;
+      --auth-card: #fff;
+      --auth-text: var(--forest);
+      --auth-sub: #8b5e3c;
+      --auth-input-bg: #fff;
+    }
+
+    [data-theme="dark"] {
+      --auth-bg: #05140d;
+      --auth-border: rgba(201,168,76,0.3);
+      --auth-card: #0a2116;
+      --auth-text: #e0f2e9;
+      --auth-sub: #a3b8ad;
+      --auth-input-bg: #123d29;
     }
 
     body {
@@ -21,6 +34,7 @@
       justify-content: center;
       padding: 40px 20px;
       margin: 0;
+      transition: background 0.3s;
     }
 
     .auth-lang-abs {
@@ -38,12 +52,13 @@
     .auth-container {
       width: 100%;
       max-width: 480px;
-      background: #fff;
+      background: var(--auth-card);
       border: 1.5px solid var(--auth-border);
       border-radius: 40px;
       padding: 48px 40px;
-      box-shadow: 0 10px 40px rgba(201, 168, 76, 0.08);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
       position: relative;
+      transition: background 0.3s, border-color 0.3s;
     }
 
     .auth-logo {
@@ -65,7 +80,7 @@
       font-family: var(--ff-title);
       font-size: 1.6rem;
       font-weight: 700;
-      color: var(--forest);
+      color: var(--auth-text);
       letter-spacing: 2px;
     }
 
@@ -84,7 +99,7 @@
     }
 
     .auth-header p {
-      color: #8b5e3c;
+      color: var(--auth-sub);
       font-size: 1.1rem;
       font-weight: 500;
     }
@@ -97,7 +112,7 @@
       display: block;
       font-size: 0.95rem;
       font-weight: 700;
-      color: var(--forest);
+      color: var(--auth-text);
       margin-bottom: 8px;
     }
 
@@ -108,9 +123,9 @@
       border-radius: 12px;
       font-family: var(--ff-body);
       font-size: 1rem;
-      color: var(--text-dark);
-      transition: border-color 0.3s, box-shadow 0.3s;
-      background: #fff;
+      color: var(--auth-text);
+      transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+      background: var(--auth-input-bg);
     }
 
     .form-input:focus {
@@ -124,7 +139,7 @@
       align-items: flex-start;
       gap: 10px;
       cursor: pointer;
-      color: #8b5e3c;
+      color: var(--auth-sub);
       font-weight: 500;
       font-size: 0.85rem;
       margin-bottom: 32px;
@@ -172,7 +187,7 @@
       text-align: center;
       margin-top: 10px;
       font-size: 1rem;
-      color: #8b5e3c;
+      color: var(--auth-sub);
       font-weight: 500;
     }
 
@@ -195,7 +210,10 @@
 <body class="no-global-components">
 
   <div class="auth-container">
-    <div class="auth-lang-abs">
+    <div class="auth-lang-abs" style="display:flex; gap:10px;">
+      <button class="lang-toggle" id="themeToggle" aria-label="Toggle Dark/Light Mode">
+        <span data-icon="moon" style="width:18px;height:18px;display:flex"></span>
+      </button>
       <button class="lang-toggle" id="langToggle" aria-label="Toggle RTL/LTR">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
           <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/>
@@ -269,6 +287,32 @@
       const next = current === 'ltr' ? 'rtl' : 'ltr';
       document.documentElement.setAttribute('dir', next);
       localStorage.setItem('IST-dir', next);
+    });
+
+    /* Theme Toggle */
+    const theme = localStorage.getItem('IST-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    
+    function updateThemeIcon(t) {
+      const btn = document.getElementById('themeToggle');
+      if (!btn) return;
+      const iconSpan = btn.querySelector('span[data-icon]');
+      if (iconSpan) {
+        const iconName = t === 'light' ? 'moon' : 'sun';
+        iconSpan.setAttribute('data-icon', iconName);
+        if (typeof ISTIcons !== 'undefined' && ISTIcons[iconName]) {
+          iconSpan.innerHTML = ISTIcons[iconName];
+        }
+      }
+    }
+    updateThemeIcon(theme);
+
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('IST-theme', next);
+      updateThemeIcon(next);
     });
   </script>
 </body>

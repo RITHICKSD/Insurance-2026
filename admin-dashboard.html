@@ -10,11 +10,36 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
+    :root {
+      --dash-bg: var(--ivory);
+      --dash-card: #fff;
+      --dash-text: var(--forest);
+      --dash-sub: var(--text-light);
+      --dash-border: rgba(10, 46, 31, .07);
+      --dash-input-bg: #fff;
+      --dash-header-bg: #fff;
+    }
+
+    [data-theme="dark"] {
+      --dash-bg: #05140d;
+      --dash-card: #0a2116;
+      --dash-text: #e0f2e9;
+      --dash-sub: #a3b8ad;
+      --dash-border: rgba(201,168,76,0.15);
+      --dash-input-bg: #123d29;
+      --dash-header-bg: #0a2116;
+      --forest: #0a2116;
+    }
+
     .dash-layout {
       display: flex;
       height: 100vh;
       box-sizing: border-box;
       overflow: hidden;
+    }
+
+    [dir=rtl] .dash-layout {
+      flex-direction: row-reverse;
     }
 
     .dash-layout *,
@@ -183,40 +208,54 @@
       margin: 12px 24px
     }
 
-    .dash-lang-toggle {
+    .dash-sidebar-footer {
       margin-top: auto;
       display: flex;
+      border-top: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .dash-footer-toggle {
+      flex: 1;
+      display: flex;
       justify-content: center;
-      padding: 24px 0;
+      padding: 22px 0;
       cursor: pointer;
       color: var(--gold);
-      transition: transform var(--t);
-      border-top: 1px solid rgba(255, 255, 255, .06);
-      width: 100%
+      transition: transform var(--t), background 0.3s;
     }
 
-    .dash-lang-toggle:hover {
-      transform: rotate(18deg)
+    .dash-footer-toggle:hover {
+      background: rgba(255, 255, 255, 0.04);
     }
 
-    .dash-lang-toggle .dash-nav-icon {
-      width: 22px;
-      height: 22px;
+    .dash-footer-toggle:not(:last-child) {
+      border-right: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    [dir=rtl] .dash-footer-toggle:not(:last-child) {
+      border-right: none;
+      border-left: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .dash-footer-toggle .dash-nav-icon {
+      width: 20px;
+      height: 20px;
       opacity: 1
     }
 
     .dash-main {
       flex: 1;
-      background: var(--ivory);
+      background: var(--dash-bg);
       overflow-y: auto;
       overflow-x: hidden;
       display: flex;
       flex-direction: column;
+      transition: background 0.3s;
     }
 
     .dash-header-bar {
-      background: #fff;
-      border-bottom: 1px solid rgba(10, 46, 31, .07);
+      background: var(--dash-header-bg);
+      border-bottom: 1px solid var(--dash-border);
       padding: 18px 48px;
       display: flex;
       align-items: center;
@@ -224,12 +263,13 @@
       flex-wrap: wrap;
       gap: 16px;
       min-height: 80px;
+      transition: background 0.3s, border-color 0.3s;
     }
 
     .dash-hb-title {
       font-family: var(--ff-display);
       font-size: 1.4rem;
-      color: var(--forest)
+      color: var(--dash-text)
     }
 
     .dash-hb-actions {
@@ -254,12 +294,12 @@
     }
 
     .kpi-card {
-      background: #fff;
+      background: var(--dash-card);
       border-radius: 20px;
       padding: 24px;
       box-shadow: var(--shadow-sm);
-      border: 1px solid rgba(10, 46, 31, .06);
-      transition: transform .3s, box-shadow .3s;
+      border: 1px solid var(--dash-border);
+      transition: transform .3s, box-shadow .3s, background 0.3s;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -284,22 +324,22 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(10, 46, 31, 0.05);
-      color: var(--forest);
+      background: rgba(10, 46, 31, 0.1);
+      color: var(--dash-text);
     }
 
     .kpi-val {
       font-family: var(--ff-display);
       font-size: 1.8rem;
       font-weight: 700;
-      color: var(--forest);
+      color: var(--dash-text);
       display: block;
       line-height: 1.1;
     }
 
     .kpi-lbl {
       font-size: .8rem;
-      color: var(--text-light);
+      color: var(--dash-sub);
       margin-top: 4px;
       display: block
     }
@@ -324,18 +364,19 @@
     .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 24px; }
 
     .dash-box {
-      background: #fff;
+      background: var(--dash-card);
       border-radius: 20px;
       padding: 28px;
       box-shadow: var(--shadow-sm);
-      border: 1px solid rgba(10, 46, 31, .06);
+      border: 1px solid var(--dash-border);
       margin-bottom: 24px;
+      transition: background 0.3s, border-color 0.3s;
     }
 
     .dash-box-title {
       font-family: var(--ff-display);
       font-size: 1.2rem;
-      color: var(--forest);
+      color: var(--dash-text);
       margin-bottom: 24px;
       display: flex;
       align-items: center;
@@ -365,15 +406,15 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--text-light);
-      border-bottom: 2px solid var(--ivory);
+      color: var(--dash-sub);
+      border-bottom: 2px solid var(--dash-bg);
     }
 
     .data-table td {
       padding: 16px;
       font-size: 0.88rem;
-      color: var(--text-dark);
-      border-bottom: 1px solid var(--ivory);
+      color: var(--dash-text);
+      border-bottom: 1px solid var(--dash-bg);
     }
 
     .data-table tr:hover td {
@@ -462,7 +503,7 @@
       border-radius: 10px;
       border: 1px solid rgba(10,46,31,0.05);
       font-weight: 600;
-      color: var(--text-light);
+      color: var(--dash-sub);
     }
     
     .btn-action {
@@ -477,11 +518,19 @@
     .btn-action:hover { background: var(--forest-mid); transform: translateY(-1px); }
 
     .audit-list { display: flex; flex-direction: column; gap: 12px; }
-    .audit-item { display: flex; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--ivory); }
-    .audit-time { font-size: 0.72rem; color: var(--text-light); width: 60px; flex-shrink: 0; }
-    .audit-msg { font-size: 0.82rem; }
-    .audit-msg strong { color: var(--forest); }
+    .audit-item { display: flex; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--dash-bg); transition: border-color 0.3s; }
+    .audit-time { font-size: 0.72rem; color: var(--dash-sub); width: 60px; flex-shrink: 0; }
+    .audit-msg { font-size: 0.82rem; color: var(--dash-text); }
+    .audit-msg strong { color: var(--dash-text); }
   </style>
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('IST-theme') || 'light';
+      const savedDir = localStorage.getItem('IST-dir') || 'ltr';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.documentElement.setAttribute('dir', savedDir);
+    })();
+  </script>
 </head>
 
 <body class="no-global-components">
@@ -532,8 +581,16 @@
         <a href="index.html" class="dash-nav-item" style="text-decoration:none"><span class="dash-nav-icon" data-icon="plane"></span>Public Portal</a>
       </nav>
 
-      <div class="dash-lang-toggle" id="adminLang" title="Switch View Direction">
-        <span class="dash-nav-icon" data-icon="globe"></span>
+      <div class="dash-sidebar-footer">
+        <div class="dash-footer-toggle" id="themeToggle" title="Toggle Theme">
+          <span data-icon="moon" class="dash-nav-icon"></span>
+        </div>
+        <div class="dash-footer-toggle" id="adminLang" title="Toggle Language Direction">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="dash-nav-icon">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20" />
+          </svg>
+        </div>
       </div>
     </aside>
 
@@ -860,7 +917,7 @@
              </div>
               <div class="dash-box" style="grid-column: span 2;">
                  <div class="dash-box-title">Cryptographic Authority Keys</div>
-                 <div style="background: var(--ivory); padding: 15px; border-radius: 12px; font-family: monospace; font-size: 0.8rem; margin-bottom: 20px;">
+                 <div style="background: var(--dash-bg); padding: 15px; border-radius: 12px; font-family: monospace; font-size: 0.8rem; margin-bottom: 20px;">
                    production_key_vault_v5_4429x-9912... <button style="float:right; border:none; background:none; color:var(--gold); cursor:pointer;">Copy</button>
                  </div>
                  <button class="btn-primary" style="width: 100%;">Rotate System Keys</button>
@@ -926,14 +983,37 @@
         });
       });
 
-      // RTL/LTR Toggle
-      const langToggles = [document.getElementById('adminLang'), document.getElementById('adminLangMobile')];
-      langToggles.forEach(btn => {
-        btn?.addEventListener('click', () => {
-          const isRtl = document.body.getAttribute('dir') === 'rtl';
-          document.body.setAttribute('dir', isRtl ? 'ltr' : 'rtl');
-        });
-      });
+    // Update icons based on current theme
+    function updateThemeIcon(t) {
+      const btn = document.getElementById('themeToggle');
+      if (!btn) return;
+      const iconSpan = btn.querySelector('span[data-icon]');
+      if (iconSpan) {
+        const iconName = t === 'light' ? 'moon' : 'sun';
+        iconSpan.setAttribute('data-icon', iconName);
+        if (typeof ISTIcons !== 'undefined' && ISTIcons[iconName]) {
+          iconSpan.innerHTML = ISTIcons[iconName];
+        }
+      }
+    }
+    updateThemeIcon(document.documentElement.getAttribute('data-theme'));
+
+    document.getElementById('adminLang')?.addEventListener('click', () => {
+      const currentDir = document.documentElement.getAttribute('dir');
+      const nextDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
+      document.documentElement.setAttribute('dir', nextDir);
+      localStorage.setItem('IST-dir', nextDir);
+      location.reload();
+    });
+
+    document.getElementById('themeToggle')?.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('IST-theme', next);
+      updateThemeIcon(next);
+      location.reload(); 
+    });
 
       // --- Charts Initialization ---
       if (typeof Chart === 'undefined') return;
