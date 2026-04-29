@@ -11,11 +11,36 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
+    :root {
+      --dash-bg: var(--ivory);
+      --dash-card: #fff;
+      --dash-text: var(--forest);
+      --dash-sub: var(--text-light);
+      --dash-border: rgba(10, 46, 31, .07);
+      --dash-input-bg: #fff;
+      --dash-header-bg: #fff;
+    }
+
+    [data-theme="dark"] {
+      --dash-bg: #05140d;
+      --dash-card: #0a2116;
+      --dash-text: #e0f2e9;
+      --dash-sub: #a3b8ad;
+      --dash-border: rgba(201,168,76,0.15);
+      --dash-input-bg: #123d29;
+      --dash-header-bg: #0a2116;
+      --forest: #0a2116;
+    }
+
     .dash-layout {
       display: flex;
       height: 100vh;
       box-sizing: border-box;
       overflow: hidden;
+    }
+
+    [dir=rtl] .dash-layout {
+      flex-direction: row-reverse;
     }
 
     .dash-layout *,
@@ -166,50 +191,65 @@
       margin: 12px 24px
     }
 
-    .dash-lang-toggle {
+    .dash-sidebar-footer {
       margin-top: auto;
       display: flex;
+      border-top: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .dash-footer-toggle {
+      flex: 1;
+      display: flex;
       justify-content: center;
-      padding: 24px 0;
+      padding: 22px 0;
       cursor: pointer;
       color: var(--gold);
-      transition: transform var(--t);
-      border-top: 1px solid rgba(255, 255, 255, .06);
-      width: 100%
+      transition: transform var(--t), background 0.3s;
     }
 
-    .dash-lang-toggle:hover {
-      transform: rotate(18deg)
+    .dash-footer-toggle:hover {
+      background: rgba(255, 255, 255, 0.04);
     }
 
-    .dash-lang-toggle .dash-nav-icon {
-      width: 22px;
-      height: 22px;
+    .dash-footer-toggle:not(:last-child) {
+      border-right: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    [dir=rtl] .dash-footer-toggle:not(:last-child) {
+      border-right: none;
+      border-left: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .dash-footer-toggle .dash-nav-icon {
+      width: 20px;
+      height: 20px;
       opacity: 1
     }
 
     .dash-main {
       flex: 1;
-      background: var(--ivory);
+      background: var(--dash-bg);
       overflow-y: auto;
       overflow-x: hidden;
+      transition: background 0.3s;
     }
 
     .dash-header-bar {
-      background: #fff;
-      border-bottom: 1px solid rgba(10, 46, 31, .07);
+      background: var(--dash-header-bg);
+      border-bottom: 1px solid var(--dash-border);
       padding: 22px 48px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 16px
+      gap: 16px;
+      transition: background 0.3s, border-color 0.3s;
     }
 
     .dash-hb-title {
       font-family: var(--ff-display);
       font-size: 1.4rem;
-      color: var(--forest)
+      color: var(--dash-text);
     }
 
     .dash-hb-actions {
@@ -238,14 +278,13 @@
     }
 
     .kpi-card {
-      background: #fff;
+      background: var(--dash-card);
       border-radius: 20px;
       padding: 24px;
       box-shadow: var(--shadow-sm);
-      border: 1px solid rgba(10, 46, 31, .06);
-      transition: transform .3s, box-shadow .3s
+      border: 1px solid var(--dash-border);
+      transition: transform .3s, box-shadow .3s, background 0.3s;
     }
-
     .kpi-card:hover {
       transform: translateY(-4px);
       box-shadow: var(--shadow-md)
@@ -260,14 +299,14 @@
       font-family: var(--ff-display);
       font-size: 1.8rem;
       font-weight: 700;
-      color: var(--forest);
+      color: var(--dash-text);
       display: block;
       line-height: 1
     }
 
     .kpi-lbl {
       font-size: .78rem;
-      color: var(--text-light);
+      color: var(--dash-sub);
       margin-top: 4px;
       display: block
     }
@@ -296,19 +335,20 @@
     }
 
     .dash-box {
-      background: #fff;
+      background: var(--dash-card);
       border-radius: 20px;
       padding: 28px;
       box-shadow: var(--shadow-sm);
-      border: 1px solid rgba(10, 46, 31, .06);
+      border: 1px solid var(--dash-border);
       width: auto;
       margin-bottom: 24px;
+      transition: background 0.3s, border-color 0.3s;
     }
 
     .dash-box-title {
       font-family: var(--ff-display);
       font-size: 1.05rem;
-      color: var(--forest);
+      color: var(--dash-text);
       margin-bottom: 20px;
       display: flex;
       align-items: center;
@@ -334,12 +374,11 @@
       gap: 14px;
       padding: 14px 16px;
       border-radius: 14px;
-      border: 1px solid rgba(10, 46, 31, .07);
+      border: 1px solid var(--dash-border);
       transition: background .3s
     }
-
     .policy-item:hover {
-      background: rgba(201, 168, 76, .04)
+      background: rgba(201, 168, 76, .08)
     }
 
     .pi-icon {
@@ -356,13 +395,12 @@
     .pi-name {
       font-size: .9rem;
       font-weight: 600;
-      color: var(--forest);
+      color: var(--dash-text);
       display: block
     }
-
     .pi-detail {
       font-size: .78rem;
-      color: var(--text-light)
+      color: var(--dash-sub)
     }
 
     .pi-badge {
@@ -401,7 +439,7 @@
     .csl-item {
       padding: 14px 16px;
       border-radius: 14px;
-      border: 1px solid rgba(10, 46, 31, .07)
+      border: 1px solid var(--dash-border)
     }
 
     .csl-header {
@@ -414,12 +452,11 @@
     .csl-ref {
       font-size: .8rem;
       font-weight: 600;
-      color: var(--forest)
+      color: var(--dash-text)
     }
-
     .csl-date {
       font-size: .75rem;
-      color: var(--text-light)
+      color: var(--dash-sub)
     }
 
     .csl-type {
@@ -553,8 +590,8 @@
         justify-content: flex-start;
         padding: 0 20px;
         height: 60px;
-        background: #fff;
-        border-bottom: 1px solid rgba(10, 46, 31, .07);
+        background: var(--dash-header-bg);
+        border-bottom: 1px solid var(--dash-border);
         position: fixed;
         top: 0;
         left: 0;
@@ -562,6 +599,7 @@
         z-index: 1500;
         gap: 15px;
         flex-direction: row !important;
+        transition: background 0.3s;
       }
 
       .dash-hamburger {
@@ -579,7 +617,7 @@
         display: block;
         height: 2px;
         width: 24px;
-        background: var(--forest);
+        background: var(--dash-text);
         border-radius: 2px;
         transition: 0.3s
       }
@@ -623,8 +661,8 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
-        background: #fff;
-        border-bottom: 1px solid rgba(10, 46, 31, .07);
+        background: var(--dash-header-bg);
+        border-bottom: 1px solid var(--dash-border);
       }
 
       .dash-hb-title {
@@ -774,31 +812,30 @@
     }
 
     .stat-label {
-      color: var(--text-light);
+      color: var(--dash-sub);
     }
-
     .stat-value {
       font-weight: 600;
-      color: var(--forest);
+      color: var(--dash-text);
     }
 
     .mini-kpi {
-      background: #f8faf9;
+      background: var(--dash-bg);
       padding: 15px;
       border-radius: 12px;
-      border: 1px solid rgba(10, 46, 31, 0.04);
+      border: 1px solid var(--dash-border);
+      transition: background 0.3s;
     }
-
     .mini-kpi-val {
       font-size: 1.1rem;
       font-weight: 700;
-      color: var(--forest);
+      color: var(--dash-text);
       display: block;
     }
 
     .mini-kpi-lbl {
       font-size: 0.7rem;
-      color: var(--text-light);
+      color: var(--dash-sub);
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -886,7 +923,7 @@
     }
 
     .data-table th {
-      color: var(--text-light);
+      color: var(--dash-sub);
       font-weight: 500;
       font-size: 0.75rem;
       text-transform: uppercase;
@@ -898,6 +935,14 @@
       }
     }
   </style>
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('IST-theme') || 'light';
+      const savedDir = localStorage.getItem('IST-dir') || 'ltr';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.documentElement.setAttribute('dir', savedDir);
+    })();
+  </script>
 </head>
 
 <body class="no-global-components">
@@ -953,8 +998,16 @@
         <a href="index.html" class="dash-nav-item" style="text-decoration:none"><span class="dash-nav-icon"
             data-icon="plane"></span>Back to Site</a>
       </nav>
-      <div class="dash-lang-toggle" id="langToggle" title="Switch Language/Direction">
-        <span class="dash-nav-icon" data-icon="globe"></span>
+      <div class="dash-sidebar-footer">
+        <div class="dash-footer-toggle" id="themeToggle" title="Toggle Theme">
+          <span data-icon="moon" class="dash-nav-icon"></span>
+        </div>
+        <div class="dash-footer-toggle" id="langToggle" title="Toggle Language Direction">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="dash-nav-icon">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20" />
+          </svg>
+        </div>
       </div>
     </aside>
 
@@ -1570,11 +1623,11 @@
           </div>
           <div class="dash-box">
             <div class="dash-box-title">Quick FAQ Search <span class="info-pill">Top Hits</span></div>
-            <div style="background:#f8faf9; padding:15px; border-radius:12px; margin-bottom:10px">
+            <div style="background:var(--dash-bg); padding:15px; border-radius:12px; margin-bottom:10px">
               <strong style="display:block; font-size:0.85rem">How to pay?</strong>
               <p style="font-size:0.75rem">Update card in Settings. <a href="#" style="color:var(--gold)">Link →</a></p>
             </div>
-            <div style="background:#f8faf9; padding:15px; border-radius:12px">
+            <div style="background:var(--dash-bg); padding:15px; border-radius:12px">
               <strong style="display:block; font-size:0.85rem">Add Driver?</strong>
               <p style="font-size:0.75rem">Upload DL in Policies. <a href="#" style="color:var(--gold)">Link →</a></p>
             </div>
@@ -1620,11 +1673,36 @@
       overlay?.addEventListener('click', toggleSidebarMobile);
       if (closeBtn) closeBtn.onclick = toggleSidebarMobile;
 
-      // RTL Toggle Logic
-      const langToggle = document.getElementById('langToggle');
-      langToggle?.addEventListener('click', () => {
-        const isRTL = document.body.getAttribute('dir') === 'rtl';
-        document.body.setAttribute('dir', isRTL ? 'ltr' : 'rtl');
+      // Update icons based on current theme
+      function updateThemeIcon(t) {
+        const btn = document.getElementById('themeToggle');
+        if (!btn) return;
+        const iconSpan = btn.querySelector('span[data-icon]');
+        if (iconSpan) {
+          const iconName = t === 'light' ? 'moon' : 'sun';
+          iconSpan.setAttribute('data-icon', iconName);
+          if (typeof ISTIcons !== 'undefined' && ISTIcons[iconName]) {
+            iconSpan.innerHTML = ISTIcons[iconName];
+          }
+        }
+      }
+      updateThemeIcon(document.documentElement.getAttribute('data-theme'));
+
+      document.getElementById('langToggle')?.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('dir');
+        const next = current === 'ltr' ? 'rtl' : 'ltr';
+        document.documentElement.setAttribute('dir', next);
+        localStorage.setItem('IST-dir', next);
+        location.reload(); // Reload to ensure charts and layout adjust
+      });
+
+      document.getElementById('themeToggle')?.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('IST-theme', next);
+        updateThemeIcon(next);
+        location.reload(); 
       });
 
       // View Switching Logic

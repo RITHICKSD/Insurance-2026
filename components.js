@@ -40,10 +40,15 @@
       </ul>
     </nav>
     <div class="header-right">
-      <button class="lang-toggle" id="langToggle" aria-label="Toggle RTL/LTR">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
-      </button>
-      <a href="login.html" class="btn-cta">Login</a>
+      <div class="header-toggles">
+        <button class="lang-toggle" id="themeToggle" aria-label="Toggle Dark/Light Mode">
+          <span data-icon="moon" style="width:18px;height:18px;display:flex"></span>
+        </button>
+        <button class="lang-toggle" id="langToggle" aria-label="Toggle RTL/LTR">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
+        </button>
+      </div>
+      <a href="login.html" class="btn-cta">Portal Access</a>
       <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
         <span></span><span></span><span></span>
       </div>
@@ -151,8 +156,28 @@
 
   /* ── ACTIVE NAV ── */
   const path = location.pathname.split('/').pop() || 'index.html';
+
+  // Mark direct links active
   document.querySelectorAll('.nav-link[href], .dropdown a, .mobile-nav-link[href], .mobile-dropdown a').forEach(a => {
     if (a.getAttribute('href') === path) { a.classList.add('active'); }
+  });
+
+  // Mark parent nav button active when a dropdown child matches current page
+  document.querySelectorAll('.nav-item').forEach(item => {
+    const childMatch = item.querySelector(`.dropdown a[href="${path}"]`);
+    if (childMatch) {
+      const parentBtn = item.querySelector('.nav-link');
+      if (parentBtn) parentBtn.classList.add('active');
+    }
+  });
+
+  // Mark parent mobile button active when a mobile dropdown child matches
+  document.querySelectorAll('.mobile-nav-list > li').forEach(li => {
+    const childMatch = li.querySelector(`.mobile-dropdown a[href="${path}"]`);
+    if (childMatch) {
+      const parentBtn = li.querySelector('.mobile-nav-link');
+      if (parentBtn) parentBtn.classList.add('active');
+    }
   });
 
   /* ── SCROLL SHRINK ── */
@@ -186,24 +211,52 @@
   const dir = localStorage.getItem('IST-dir') || 'ltr';
   document.documentElement.setAttribute('dir', dir);
 
-  function toggleDir() {
-    const html = document.documentElement;
-    html.style.transition = 'none';
-    document.querySelectorAll('*').forEach(el => el.style.transition = 'none');
-    
-    const current = html.getAttribute('dir');
-    const next = current === 'ltr' ? 'rtl' : 'ltr';
-    html.setAttribute('dir', next);
-    localStorage.setItem('IST-dir', next);
-    
-    // Force reflow
-    void html.offsetHeight;
-    
-    // Restore transitions
-    html.style.transition = '';
-    document.querySelectorAll('*').forEach(el => el.style.transition = '');
+  /* ── THEME ── */
+  const theme = localStorage.getItem('IST-theme') || 'light';
+  document.documentElement.setAttribute('data-theme', theme);
+
+  function updateThemeIcon(t) {
+    const btn = document.getElementById('themeToggle');
+    if (!btn) return;
+    const iconSpan = btn.querySelector('span[data-icon]');
+    if (iconSpan) {
+      const iconName = t === 'light' ? 'moon' : 'sun';
+      iconSpan.setAttribute('data-icon', iconName);
+      if (typeof ISTIcons !== 'undefined' && ISTIcons[iconName]) {
+        iconSpan.innerHTML = ISTIcons[iconName];
+      }
+    }
   }
-  document.getElementById('langToggle')?.addEventListener('click', toggleDir);
+  updateThemeIcon(theme);
+
+  // Only bind toggle events on public pages (not dashboards which handle their own)
+  const isPublicPage = !document.body.classList.contains('no-global-components');
+
+  if (isPublicPage) {
+    function toggleDir() {
+      const html = document.documentElement;
+      html.style.transition = 'none';
+      document.querySelectorAll('*').forEach(el => el.style.transition = 'none');
+      const current = html.getAttribute('dir');
+      const next = current === 'ltr' ? 'rtl' : 'ltr';
+      html.setAttribute('dir', next);
+      localStorage.setItem('IST-dir', next);
+      void html.offsetHeight;
+      html.style.transition = '';
+      document.querySelectorAll('*').forEach(el => el.style.transition = '');
+    }
+    document.getElementById('langToggle')?.addEventListener('click', toggleDir);
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('IST-theme', next);
+      updateThemeIcon(next);
+    }
+    document.getElementById('themeToggle')?.addEventListener('click', toggleTheme);
+  }
 
   /* ── SCROLL REVEAL ── */
   const revealObserver = new IntersectionObserver(entries => {
