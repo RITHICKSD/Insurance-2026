@@ -369,13 +369,20 @@ button {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background var(--t), transform var(--t), border-color var(--t);
-    color: var(--gold)
+    transition: background var(--t), transform var(--t), border-color var(--t), color var(--t);
+    color: var(--gold);
+    font-family: var(--ff-body);
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    user-select: none;
 }
 
 .lang-toggle:hover {
     background: rgba(201, 168, 76, .22);
-    transform: translateY(-2px)
+    transform: translateY(-2px);
+    border-color: var(--gold);
 }
 
 .lang-toggle svg {

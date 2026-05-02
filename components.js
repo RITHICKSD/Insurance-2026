@@ -44,9 +44,7 @@
         <button class="lang-toggle" id="themeToggle" aria-label="Toggle Dark/Light Mode">
           <span data-icon="moon" style="width:18px;height:18px;display:flex"></span>
         </button>
-        <button class="lang-toggle" id="langToggle" aria-label="Toggle RTL/LTR">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
-        </button>
+        <button class="lang-toggle" id="langToggle" aria-label="Toggle RTL/LTR">LTR</button>
       </div>
       <a href="login.html" class="btn-cta">Portal Access</a>
       <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
@@ -211,6 +209,12 @@
   const dir = localStorage.getItem('IST-dir') || 'ltr';
   document.documentElement.setAttribute('dir', dir);
 
+  function updateLangToggleText(d) {
+    const btn = document.getElementById('langToggle');
+    if (btn) btn.textContent = d === 'ltr' ? 'LTR' : 'RTL';
+  }
+  updateLangToggleText(dir);
+
   /* ── THEME ── */
   const theme = localStorage.getItem('IST-theme') || 'light';
   document.documentElement.setAttribute('data-theme', theme);
@@ -241,6 +245,7 @@
       const next = current === 'ltr' ? 'rtl' : 'ltr';
       html.setAttribute('dir', next);
       localStorage.setItem('IST-dir', next);
+      updateLangToggleText(next);
       void html.offsetHeight;
       html.style.transition = '';
       document.querySelectorAll('*').forEach(el => el.style.transition = '');

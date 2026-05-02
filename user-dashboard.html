@@ -194,30 +194,35 @@
     .dash-sidebar-footer {
       margin-top: auto;
       display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 24px 0;
       border-top: 1px solid rgba(255, 255, 255, .06);
     }
 
     .dash-footer-toggle {
-      flex: 1;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       display: flex;
+      align-items: center;
       justify-content: center;
-      padding: 22px 0;
       cursor: pointer;
       color: var(--gold);
-      transition: transform var(--t), background 0.3s;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: var(--ff-body);
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
     }
 
     .dash-footer-toggle:hover {
-      background: rgba(255, 255, 255, 0.04);
-    }
-
-    .dash-footer-toggle:not(:last-child) {
-      border-right: 1px solid rgba(255, 255, 255, .06);
-    }
-
-    [dir=rtl] .dash-footer-toggle:not(:last-child) {
-      border-right: none;
-      border-left: 1px solid rgba(255, 255, 255, .06);
+      background: rgba(201, 168, 76, 0.15);
+      border-color: var(--gold);
+      transform: translateY(-3px);
     }
 
     .dash-footer-toggle .dash-nav-icon {
@@ -1002,12 +1007,7 @@
         <div class="dash-footer-toggle" id="themeToggle" title="Toggle Theme">
           <span data-icon="moon" class="dash-nav-icon"></span>
         </div>
-        <div class="dash-footer-toggle" id="langToggle" title="Toggle Language Direction">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="dash-nav-icon">
-            <circle cx="12" cy="12" r="10" />
-            <path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20" />
-          </svg>
-        </div>
+        <div class="dash-footer-toggle" id="langToggle" title="Toggle Language Direction">LTR</div>
       </div>
     </aside>
 
@@ -1688,11 +1688,18 @@
       }
       updateThemeIcon(document.documentElement.getAttribute('data-theme'));
 
+      function updateLangToggleText(d) {
+        const btn = document.getElementById('langToggle');
+        if (btn) btn.textContent = d === 'ltr' ? 'LTR' : 'RTL';
+      }
+      updateLangToggleText(document.documentElement.getAttribute('dir') || 'ltr');
+
       document.getElementById('langToggle')?.addEventListener('click', () => {
         const current = document.documentElement.getAttribute('dir');
         const next = current === 'ltr' ? 'rtl' : 'ltr';
         document.documentElement.setAttribute('dir', next);
         localStorage.setItem('IST-dir', next);
+        updateLangToggleText(next);
         location.reload(); // Reload to ensure charts and layout adjust
       });
 
