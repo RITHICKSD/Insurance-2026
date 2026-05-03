@@ -46,7 +46,7 @@
         </button>
         <button class="lang-toggle" id="langToggle" aria-label="Toggle RTL/LTR">LTR</button>
       </div>
-      <a href="login.html" class="btn-cta">Portal Access</a>
+      <a href="login.html" class="btn-cta">Login</a>
       <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
         <span></span><span></span><span></span>
       </div>
