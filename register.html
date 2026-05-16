@@ -97,6 +97,14 @@
       margin-bottom: 32px;
     }
 
+    .auth-header h2 {
+      font-family: var(--ff-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--auth-text);
+      margin-bottom: 10px;
+    }
+
     .auth-header p {
       color: var(--auth-sub);
       font-size: 1.1rem;
@@ -155,9 +163,12 @@
     }
 
     .form-checkbox a {
-      color: #008080;
+      color: var(--gold);
       font-weight: 600;
       text-decoration: none;
+    }
+    .form-checkbox a:hover {
+      opacity: 0.8;
     }
 
     .btn-auth {
@@ -191,9 +202,12 @@
     }
 
     .auth-footer a {
-      color: #008080;
+      color: var(--gold);
       font-weight: 700;
       text-decoration: none;
+    }
+    .auth-footer a:hover {
+      opacity: 0.8;
     }
 
     /* Mobile adjustments */
@@ -229,7 +243,8 @@
     </a>
 
     <div class="auth-header">
-      <p>Create your account</p>
+      <h2>Create Account</h2>
+      <p>Join IST Insurance today</p>
     </div>
 
     <form action="login.html">

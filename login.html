@@ -97,6 +97,14 @@
       margin-bottom: 32px;
     }
 
+    .auth-header h2 {
+      font-family: var(--ff-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--auth-text);
+      margin-bottom: 10px;
+    }
+
     .auth-header p {
       color: var(--auth-sub);
       font-size: 1.05rem;
@@ -158,9 +166,12 @@
     }
 
     .forgot-link {
-      color: #008080;
+      color: var(--gold);
       font-weight: 600;
       text-decoration: none;
+    }
+    .forgot-link:hover {
+      opacity: 0.8;
     }
 
     .btn-auth {
@@ -241,9 +252,12 @@
     }
 
     .auth-footer a {
-      color: #008080;
+      color: var(--gold);
       font-weight: 700;
       text-decoration: none;
+    }
+    .auth-footer a:hover {
+      opacity: 0.8;
     }
 
     /* Mobile adjustments */
@@ -279,7 +293,8 @@
     </a>
 
     <div class="auth-header">
-      <p>Welcome back! Please login to your account</p>
+      <h2>Welcome Back</h2>
+      <p>Please login to your account</p>
     </div>
 
     <form action="user-dashboard.html">
@@ -320,6 +335,13 @@
         <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.65 9.12 8.44 9.88v-6.99H7.9V12h2.54V9.41c0-2.51 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99C18.35 21.12 22 16.99 22 12z"/>
       </svg>
       Continue with Facebook
+    </button>
+
+    <button class="btn-social">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+      </svg>
+      Continue with Apple
     </button>
 
     <div class="auth-footer">

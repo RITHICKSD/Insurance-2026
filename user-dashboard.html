@@ -1000,14 +1000,12 @@
         <div class="dash-nav-divider"></div>
         <div class="dash-nav-item" data-view="view-support"><span class="dash-nav-icon"
             data-icon="messageSquare"></span>Get Support</div>
-        <a href="index.html" class="dash-nav-item" style="text-decoration:none"><span class="dash-nav-icon"
-            data-icon="plane"></span>Back to Site</a>
       </nav>
-      <div class="dash-sidebar-footer">
-        <div class="dash-footer-toggle" id="themeToggle" title="Toggle Theme">
+      <div class="dash-sidebar-footer" style="display: none;">
+        <div class="dash-footer-toggle" id="themeToggleOld" title="Toggle Theme">
           <span data-icon="moon" class="dash-nav-icon"></span>
         </div>
-        <div class="dash-footer-toggle" id="langToggle" title="Toggle Language Direction">LTR</div>
+        <div class="dash-footer-toggle" id="langToggleOld" title="Toggle Language Direction">LTR</div>
       </div>
     </aside>
 
@@ -1020,6 +1018,14 @@
             in 24 days</div>
         </div>
         <div class="dash-hb-actions">
+          <div class="dash-footer-toggle" id="themeToggle" title="Toggle Theme" style="width:36px; height:36px; background:var(--dash-bg); border-color:var(--dash-border); color:var(--gold);">
+            <span data-icon="moon" style="width:18px; height:18px;"></span>
+          </div>
+          <div class="dash-footer-toggle" id="langToggle" title="Toggle Language Direction" style="width:36px; height:36px; background:var(--dash-bg); border-color:var(--dash-border); color:var(--gold); font-size:10px;">LTR</div>
+          <div class="dash-footer-toggle" title="My Profile" style="width:36px; height:36px; background:var(--dash-bg); border-color:var(--dash-border); color:var(--gold);">
+            <span data-icon="users" style="width:18px; height:18px;"></span>
+          </div>
+          <div style="width:1px; height:24px; background:var(--dash-border); margin:0 4px;"></div>
           <a href="contact.html" class="btn-outline-dark"
             style="padding:9px 20px;font-size:.83rem;display:flex;align-items:center;gap:8px">
             <span data-icon="phone" style="width:14px;height:14px"></span> Get Support

@@ -66,20 +66,25 @@
 }
 
 [data-theme="dark"] {
-    --bg-primary: #05140d;
-    --bg-secondary: #0a2116;
-    --bg-tertiary: #0d2b1d;
-    --bg-card: #0d2b1d;
-    --text-main: #e0f2e9;
+    /* Issue 5: True black bg with dark grey alternates — no more full green backgrounds */
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #141414;
+    --bg-tertiary: #1a1a1a;
+    --bg-card: #1c1c1c;
+    --text-main: #e8f5ee;
     --text-body: #a3b8ad;
     --text-muted-th: #708a7a;
     --border-th: rgba(201, 168, 76, .15);
-    --input-bg: #123d29;
-    --shadow-th: 0 8px 32px rgba(0, 0, 0, .3);
+    --input-bg: #242424;
+    --shadow-th: 0 8px 32px rgba(0, 0, 0, .5);
 
-    /* Overrides for specific sections that were dark in light mode but should stay or change slightly */
-    --forest: #0a2116;
-    --forest-mid: #030a07;
+    /* Keep dark-forest for header/nav/CTA sections that intentionally use dark green */
+    --forest: #0d1f14;
+    --forest-mid: #050d08;
+    --forest-light: #122b1a;
+
+    /* Issue 8: distinct footer color in dark mode */
+    --footer-bg: #000000;
 }
 
 /* ── Reset ── */
@@ -933,8 +938,12 @@ button {
 }
 
 /* ══ FOOTER ══ */
+/* Issue 8: Footer uses a distinct color to separate from above sections */
+:root {
+    --footer-bg: #071a0e;
+}
 .site-footer {
-    background: var(--forest);
+    background: var(--footer-bg);
     color: rgba(255, 255, 255, .72);
     padding: 80px 0 0
 }
@@ -1149,6 +1158,31 @@ button {
 
     .hamburger {
         display: flex
+    }
+}
+
+/* Issue Responsive #1: Fix nav bar alignment at 360px */
+@media(max-width:400px) {
+    .site-header {
+        padding: 0 12px 0 12px
+    }
+    .header-right {
+        gap: 6px
+    }
+    .lang-toggle {
+        width: 34px;
+        height: 34px;
+        font-size: 0.65rem
+    }
+    .header-logo .logo-text .lt1 {
+        font-size: 0.95rem
+    }
+    .header-logo .logo-text .lt2 {
+        font-size: 0.52rem
+    }
+    .logo-icon {
+        width: 34px;
+        height: 34px
     }
 }
 

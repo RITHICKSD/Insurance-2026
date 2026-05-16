@@ -26,15 +26,13 @@
 .pg-hero-content {
     position: relative;
     z-index: 2;
-    padding: 60px 0;
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 60px;
-    align-items: center;
+    padding: 80px 0;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
-
 .pg-hero-text {
-    max-width: 600px;
+    margin: 0 auto;
 }
 
 .pg-hero h1 {
@@ -199,15 +197,17 @@
 }
 .cm-item:hover { transform: translateX(4px); box-shadow: var(--shadow-md); }
 .cm-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, var(--forest), var(--forest-mid));
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-th);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
     color: var(--gold);
+    box-shadow: var(--shadow-sm);
 }
 .cm-icon svg {
     width: 22px;
@@ -320,18 +320,8 @@
     .map-overlay-content { padding-left: 40px; }
     
     .pg-hero-content {
-        grid-template-columns: 1fr;
-        gap: 80px;
         text-align: center;
-        padding: 60px 0;
-    }
-    
-    .pg-hero-text {
-        margin: 0 auto;
-    }
-    
-    .pg-breadcrumb {
-        justify-content: center;
+        padding: 80px 0;
     }
     
     .pg-hero p {
@@ -353,6 +343,22 @@
     .hero-float-card {
         right: 0;
         bottom: -20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+    .cf-grid {
+        grid-template-columns: 1fr;
+    }
+    .cm-item {
+        padding: 16px;
+    }
+    .pg-hero-visual {
+        display: none; /* Hide visual on smaller screens to keep hero clean */
     }
 }
 

@@ -16,46 +16,23 @@
     <div class="pg-hero-bg"></div>
     <div class="pg-hero-grid"></div>
     <div class="container">
-        <div class="pg-hero-content">
+        <div class="pg-hero-content reveal">
             <div class="pg-hero-text">
-                <div class="section-badge reveal" style="margin-bottom: 20px; color: var(--gold); border-color: rgba(201, 168, 76, 0.3);">Get in Touch</div>
+                <div class="section-badge" style="margin-bottom: 20px; color: var(--gold); border-color: rgba(201, 168, 76, 0.3); display: inline-block;">Get in Touch</div>
                 <h1 class="reveal delay-1">
                     <span class="hero-h-top">Connect</span>
                     <span class="hero-h-mid">Globally</span>
                 </h1>
-                <p class="reveal delay-2">Whether you're a local policyholder or a multinational partner, our infrastructure is designed to provide immediate, expert support wherever you are on the map.</p>
+                <p class="reveal delay-2" style="margin: 0 auto 32px; max-width: 600px;">Whether you're a local policyholder or a multinational partner, our infrastructure is designed to provide immediate, expert support wherever you are on the map.</p>
                 
-                <div class="hero-trust-row reveal delay-3">
+                <div class="hero-trust-row reveal delay-3" style="justify-content: center;">
                     <div class="ht-item">
                         <div class="ht-circle">✓</div>
-                        <span>24/7 Support</span>
+                        <span>24/7 Global Access</span>
                     </div>
                     <div class="ht-item">
                         <div class="ht-circle">✓</div>
-                        <span>Global Network</span>
-                    </div>
-                    <div class="ht-item">
-                        <div class="ht-circle">✓</div>
-                        <span>Direct Access</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pg-hero-visual reveal-right delay-2">
-                <div class="hero-visual-container">
-                    <div class="hero-v-circle"></div>
-                    <img src="i7.jpg" alt="IST Global Infrastructure" class="hero-main-img">
-                    <div class="hero-float-card">
-                        <div class="hfc-icon" data-icon="phone" style="width:24px;height:24px;color:var(--gold)"></div>
-                        <div class="hfc-text">
-                            <strong>Global Hotline</strong>
-                            <span>+1 (800) IST-INSURE</span>
-                            <div style="font-size: .65rem; color: #22C55E; font-weight: 700; margin-top: 4px; display: flex; align-items: center; gap: 4px;">
-                                <span style="width: 6px; height: 6px; background: #22C55E; border-radius: 50%;"></span>
-                                24/7 Priority Live
-                            </div>
-                            <small style="font-size: 10px; opacity: 0.5; display: block; margin-top: 2px;">Avg. Response: 1.5 mins</small>
-                        </div>
+                        <span>2hr Response Time</span>
                     </div>
                 </div>
             </div>
@@ -72,9 +49,27 @@
                 <h2 class="reveal delay-1">We're <span style="color:var(--gold);font-style:italic">Always</span> Here</h2>
                 <p class="reveal delay-2">In your moment of need, we don't believe in long hold times or automated loops. Connect with our experts directly.</p>
                 <div class="contact-methods reveal delay-2">
-                    <div class="cm-item"><div class="cm-icon" data-icon="phone" style="width:20px;height:20px"></div><div><strong>Global Hotline</strong><span>+1 (800) IST-INSURE · 24/7 Priority</span></div></div>
-                    <div class="cm-item"><div class="cm-icon" data-icon="mail" style="width:20px;height:20px"></div><div><strong>Support Email</strong><span>hello@ISTinsurance.com · 2hr Response</span></div></div>
-                    <div class="cm-item"><div class="cm-icon" data-icon="messageSquare" style="width:20px;height:20px"></div><div><strong>Instant Chat</strong><span>Available via IST App & Member Portal</span></div></div>
+                    <div class="cm-item" id="hotline-card">
+                        <div class="cm-icon" data-icon="phone" id="icon-phone-main"></div>
+                        <div>
+                            <strong>Global Hotline</strong>
+                            <span>+1 (800) IST-INSURE · 24/7 Priority</span>
+                        </div>
+                    </div>
+                    <div class="cm-item" id="email-card">
+                        <div class="cm-icon" data-icon="mail" id="icon-mail-main"></div>
+                        <div>
+                            <strong>Support Email</strong>
+                            <span>hello@ISTinsurance.com · 2hr Response</span>
+                        </div>
+                    </div>
+                    <div class="cm-item" id="chat-card">
+                        <div class="cm-icon" data-icon="messageSquare" id="icon-chat-main"></div>
+                        <div>
+                            <strong>Instant Chat</strong>
+                            <span>Available via IST App & Member Portal</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="hours-card reveal delay-3">
                     <h4>Regional Hub Hours</h4>
